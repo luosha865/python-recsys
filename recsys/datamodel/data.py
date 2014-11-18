@@ -243,3 +243,13 @@ class Data:
         :type param: string
         """
         pickle.dump(self._data, open(path, "w"))
+
+
+    def sample(self,alpha):
+        shuffle(self._data)
+        length = len(self._data)
+        sampleData = Data()
+        sampleData.set(self._data[:int(round(length*alpha/100.0))])
+        return sampleData
+
+
